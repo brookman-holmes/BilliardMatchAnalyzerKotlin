@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/BilliardMatchAnalyzerKotlin.iml" filepath="$PROJECT_DIR$/.idea/BilliardMatchAnalyzerKotlin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/scaffold.iml" filepath="$PROJECT_DIR$/scaffold.iml" />
     </modules>
