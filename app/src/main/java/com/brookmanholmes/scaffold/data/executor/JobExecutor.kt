@@ -11,23 +11,18 @@ import java.util.concurrent.TimeUnit
  * Decorated {@link ThreadPoolExecutor}
  */
 class JobExecutor: ThreadExecutor {
-    private val workQueue: LinkedBlockingQueue<Runnable>
+    private val workQueue = LinkedBlockingQueue<Runnable>()
+
+    private val threadFactory = JobThreadFactory()
 
     private val threadPoolExecutor: ThreadPoolExecutor
 
-    private val threadFactory: ThreadFactory
-
     init {
-        this.workQueue = LinkedBlockingQueue()
-        this.threadFactory = JobThreadFactory()
         this.threadPoolExecutor = ThreadPoolExecutor(INITIAL_POOL_SIZE, MAX_POOL_SIZE,
                 KEEP_ALIVE_TIME.toLong(), KEEP_ALIVE_TIME_UNIT, this.workQueue, this.threadFactory)
     }
 
-    override fun execute(runnable: Runnable?) {
-        if (runnable == null) {
-            throw IllegalArgumentException("Runnable to execute cannot be null")
-        }
+    override fun execute(runnable: Runnable) {
         this.threadPoolExecutor.execute(runnable)
     }
 
