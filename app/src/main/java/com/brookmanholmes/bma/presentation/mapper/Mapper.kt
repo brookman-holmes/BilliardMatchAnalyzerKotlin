@@ -5,8 +5,8 @@ package com.brookmanholmes.bma.presentation.mapper
  * Interface for model mappers. It provides helper methods that facilitate retrieving of models from
  * outer data source layers
  */
-interface Mapper<Presentation, Domain> {
-    fun mapFromDomain(model: Domain): Presentation
+interface Mapper<ViewModel, Domain> {
+    fun mapToViewModel(model: Domain): ViewModel
 
-    fun mapToDomain(model: Presentation): Domain
+    fun mapToDomain(model: ViewModel): Domain
 }

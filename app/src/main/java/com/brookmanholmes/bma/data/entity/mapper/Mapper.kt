@@ -6,7 +6,7 @@ package com.brookmanholmes.bma.data.entity.mapper
  * outer data source layers
  */
 interface Mapper<Entity, Domain> {
-    fun mapFromEntity(type: Entity): Domain
+    fun mapToDomain(type: Entity): Domain
 
     fun mapToEntity(type: Domain): Entity
 }

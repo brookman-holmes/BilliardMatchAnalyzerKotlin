@@ -7,18 +7,18 @@ import com.nhaarman.mockito_kotlin.mock
 import io.reactivex.Observable
 import io.reactivex.observers.DisposableObserver
 import io.reactivex.schedulers.TestScheduler
+import org.assertj.core.api.Assertions.assertThat
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.rules.ExpectedException
 
-import org.assertj.core.api.Assertions.assertThat
 /**
  * Created by brookman on 9/16/17.
  */
 class UseCaseTest {
     private lateinit var useCase: UseCaseTestClass
-    private lateinit var testObserver: TestDisposableObserver<Object>
+    private lateinit var testObserver: TestDisposableObserver<kotlin.Any>
     private lateinit var mockThreadExecutor: ThreadExecutor
     private lateinit var mockPostExecutionThread: PostExecutionThread
 
@@ -66,9 +66,9 @@ class UseCaseTest {
     }
 
     private class UseCaseTestClass(threadExecutor: ThreadExecutor, postExecutionThread: PostExecutionThread):
-            UseCase<Object, Params>(threadExecutor, postExecutionThread) {
+            UseCase<kotlin.Any, Params>(threadExecutor, postExecutionThread) {
 
-        override fun buildUseCaseObservable(params: Params?): Observable<Object> {
+        override fun buildUseCaseObservable(params: Params?): Observable<kotlin.Any> {
             return Observable.empty()
         }
     }
